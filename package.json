@@ -1,0 +1,22 @@
+{
+  "name": "bz2",
+  "version": "1.0.0",
+  "description": "bzip2 for JavaScript",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sheetjs/bz2.git"
+  },
+  "author": "gus@sheetjs.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sheetjs/bz2/issues"
+  },
+  "homepage": "https://github.com/sheetjs/bz2#readme"
+}

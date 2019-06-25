@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>BZ2 Test</title>
+    <style>
+    #drop {
+      border: 2px dashed #bbb;
+      -moz-border-radius: 5px;
+      -webkit-border-radius: 5px;
+      border-radius: 5px;
+      padding: 25px;
+      text-align: center;
+      font: 20pt bold, "Vollkorn";
+      color: #bbb;
+    }
+    </style>
+  </head>
+  <body>
+    <h1>bz2 Live Demo</h1>
+    <h5>This demo decompresses bz2 archives in your web browser. No data is sent to an external server.</h5>
+    <a href="https://github.com/sheetjs/bz2">Source code on GitHub</a>
+    <div id="drop">
+      <p>Drag a bzip2 file into this area to see the contents</p>
+    </div>
+    <input type="checkbox" id="download"> Download decompressed output (Recommended for .tar.bz2 and other compressed binary data)
+    <pre id="out"></pre>
+    <script type="module">
+      import { decompress } from 'https://unpkg.com/bz2?module';
+
+      document.querySelector('#drop').addEventListener('drop', (event) => {
+        event.preventDefault();
+        let file;
+        if (event.dataTransfer.items) {
+          file = event.dataTransfer.items[0].getAsFile();
+        } else {
+          file = event.dataTransfer.files[0];
+        }
+
+        const download = document.querySelector('#download').checked;
+
+        const reader = new FileReader();
+        reader.addEventListener('load', (e) => {
+          const bytes = decompress(new Uint8Array(reader.result));
+          const result = new TextDecoder('utf8').decode(bytes);
+          if (download) {
+            const blob = new Blob([result], { type: 'application/octet-stream' });
+            document.location = URL.createObjectURL(blob);
+          } else {
+            document.querySelector('#out').textContent = result;
+          }
+        });
+        reader.readAsArrayBuffer(file);
+      });
+      document.querySelector('#drop').addEventListener('dragover', (event) => {
+        event.preventDefault();
+      });
+    </script>
+  </body>
+</html>
