@@ -1,6 +1,6 @@
 {
   "name": "bz2",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "bzip2 for JavaScript",
   "main": "index.js",
   "directories": {

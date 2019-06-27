@@ -25,9 +25,8 @@
     </div>
     <input type="checkbox" id="download"> Download decompressed output (Recommended for .tar.bz2 and other compressed binary data)
     <pre id="out"></pre>
-    <script type="module">
-      import { decompress } from 'https://unpkg.com/bz2?module';
-
+    <script src="https://unpkg.com/bz2"></script>
+    <script>
       document.querySelector('#drop').addEventListener('drop', (event) => {
         event.preventDefault();
         let file;
@@ -41,7 +40,7 @@
 
         const reader = new FileReader();
         reader.addEventListener('load', (e) => {
-          const bytes = decompress(new Uint8Array(reader.result));
+          const bytes = window.bz2.decompress(new Uint8Array(reader.result));
           const result = new TextDecoder('utf8').decode(bytes);
           if (download) {
             const blob = new Blob([result], { type: 'application/octet-stream' });
