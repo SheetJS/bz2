@@ -6,6 +6,9 @@
   "directories": {
     "test": "tests"
   },
+  "bin": {
+    "bz2": "./bz2.js"
+  },
   "scripts": {
     "test": "node test.js"
   },
@@ -18,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/sheetjs/bz2/issues"
   },
-  "homepage": "https://github.com/sheetjs/bz2#readme"
+  "homepage": "https://github.com/sheetjs/bz2#readme",
+  "dependencies": {
+    "minimist": "^1.2.0"
+  }
 }

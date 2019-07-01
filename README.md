@@ -15,9 +15,9 @@ Try out the [demo](https://http://sheetjs.com/bz2/demo).
 
 ## API
 
-### `decompress(data, crc)`
+### `decompress(data, test)`
 * `data`: `Uint8Array` - The data to be decompressed.
-* `crc`: `boolean` - Check data using CRC32. Default: `true`.
+* `test`: `boolean` - Verify integrity of compressed data. Default: `false`.
 * **Returns**: `Uint8Array`
 
 Decompresses `data`.
