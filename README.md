@@ -11,7 +11,7 @@ const output = decompress(input);
 Available from the npm registry as `bz2`
 and from the GitHub registry as `@sheetjs/bz2`.
 
-Try out the [demo](https://http://sheetjs.com/bz2/demo).
+Try out the [demo](https://sheetjs.com/bz2/demo).
 
 ## API
 
